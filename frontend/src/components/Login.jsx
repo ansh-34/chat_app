@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import toast from "react-hot-toast"
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { BASE_URL } from '../config';
 import { setAuthUser } from '../redux/userSlice';
 
 const Login = () => {
@@ -17,7 +16,7 @@ const Login = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
+      const res = await axios.post(`https://chat-app-b0zf.onrender.com/api/v1/user/login`, user, {
         headers: {
           'Content-Type': 'application/json'
         },

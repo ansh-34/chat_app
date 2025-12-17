@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ['http://localhost:5173','http://localhost:5174'],
+    origin: ['https://chat-app-b0zf.onrender.com'],
     credentials: true,
 }));
 
