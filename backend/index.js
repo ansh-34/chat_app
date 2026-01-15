@@ -28,16 +28,16 @@ app.use("/api/v1/message", messageRoute);
 // https://localhost:8080/api/v1/users/register
 
 // Serve static files from frontend build
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-// Catch-all route for SPA - send index.html for any non-API routes
-app.use((req, res, next) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-    } else {
-        next();
-    }
-});
+// // Catch-all route for SPA - send index.html for any non-API routes
+// app.use((req, res, next) => {
+//     if (!req.path.startsWith('/api')) {
+//         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+//     } else {
+//         next();
+//     }
+// });
 
 server.listen(PORT, () => {
     connectDB();
