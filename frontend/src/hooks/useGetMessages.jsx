@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import axios from "axios";
 import {useSelector,useDispatch} from "react-redux";
 import { setMessages } from '../redux/messageSlice';
+import { BASE_URL } from '../config';
 
 
 const useGetMessages = () => {
@@ -11,7 +12,7 @@ const useGetMessages = () => {
         const fetchMessages = async () => {
             try {
                 axios.defaults.withCredentials = true;
-                const res = await axios.get(`https://chat-app-b0zf.onrender.com/api/v1/message/${selectedUser?._id}`);
+                const res = await axios.get(`${BASE_URL}/api/v1/message/${selectedUser?._id}`);
                 dispatch(setMessages(res.data.messages))
             } catch (error) {
                 console.log(error);
