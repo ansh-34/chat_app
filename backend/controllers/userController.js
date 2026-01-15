@@ -51,7 +51,12 @@ export const login = async (req, res) => {
 
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY, { expiresIn: "7d" });
 
-        return res.status(200).cookie("token", token, {maxAge:1*24*60*60*1000, httpOnly:true, sameSite:'Strict'}).json({ 
+        return res.status(200).cookie("token", token, {
+            maxAge: 1*24*60*60*1000, 
+            httpOnly: true, 
+            sameSite: 'none',
+            secure: true
+        }).json({ 
             _id: user._id,
             fullName: user.fullName,
             username: user.username,
